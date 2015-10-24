@@ -10,6 +10,7 @@ public class Utilies
     public static final int CHAMPIONS_LEAGUE = 362;
     public static final int PRIMERA_DIVISION = 358;
     public static final int BUNDESLIGA = 351;
+    public static final String DATA_UPDATE_ACTION = "";
     public static String getLeague(int league_num)
     {
         switch (league_num)

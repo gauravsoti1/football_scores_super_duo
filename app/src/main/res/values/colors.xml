@@ -76,5 +76,12 @@
     <color name="red13">#FFCACA</color>
     <color name="red14">#FFE4E4</color>
 
+    <color name="primary_color">#FFC107</color>
+    <color name="primary_dark">#FFA000</color>
+    <color name="accent_color">#607D8B</color>
+    <color name="primary_light">#FFECB3</color>
+
+
+
 
 </resources>

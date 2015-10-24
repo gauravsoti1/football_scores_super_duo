@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import barqsoft.footballscores.service.myFetchService;
+
 public class MainActivity extends AppCompatActivity
 {
     public static int selected_match_id;
@@ -14,12 +16,19 @@ public class MainActivity extends AppCompatActivity
     public static final String LOG_TAG = "MainActivity";
     private static final  String save_tag = "Save Test";
     private PagerFragment my_main;
+
+    private void update_scores() {
+        Intent service_start = new Intent(MainActivity.this, myFetchService.class);
+        MainActivity.this.startService(service_start);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(LOG_TAG, "Reached MainActivity onCreate");
         if (savedInstanceState == null) {
+            update_scores();
             my_main = new PagerFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, my_main)
