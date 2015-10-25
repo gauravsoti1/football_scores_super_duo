@@ -2,6 +2,7 @@ package barqsoft.footballscores;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -15,6 +16,7 @@ public class ViewHolder
     public TextView date;
     public ImageView home_crest;
     public ImageView away_crest;
+    public LinearLayout rootLayout;
     public double match_id;
     public ViewHolder(View view)
     {
@@ -24,5 +26,6 @@ public class ViewHolder
         date      = (TextView) view.findViewById(R.id.data_textview);
         home_crest = (ImageView) view.findViewById(R.id.home_crest);
         away_crest = (ImageView) view.findViewById(R.id.away_crest);
+        rootLayout = (LinearLayout) view.findViewById(R.id.root_container);
     }
 }

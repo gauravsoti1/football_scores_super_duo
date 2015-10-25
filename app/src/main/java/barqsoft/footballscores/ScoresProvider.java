@@ -112,7 +112,9 @@ public class ScoresProvider extends ContentProvider
                     retCursor = mOpenHelper.getReadableDatabase().query(
                     DatabaseContract.SCORES_TABLE,
                     projection,SCORES_BY_DATE,selectionArgs,null,null,sortOrder); break;
-            case MATCHES_WITH_ID: retCursor = mOpenHelper.getReadableDatabase().query(
+            case MATCHES_WITH_ID:
+                String xx = selectionArgs[0];
+                retCursor = mOpenHelper.getReadableDatabase().query(
                     DatabaseContract.SCORES_TABLE,
                     projection,SCORES_BY_ID,selectionArgs,null,null,sortOrder); break;
             case MATCHES_WITH_LEAGUE: retCursor = mOpenHelper.getReadableDatabase().query(

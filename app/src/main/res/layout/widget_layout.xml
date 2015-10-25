@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@null"
     android:padding="@dimen/widget_margin">
 
     <FrameLayout
@@ -26,15 +27,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#FFFFFF">
+        android:background="@null">
 
         <ListView
             android:id="@+id/widget_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:dividerHeight="0dp"
-            android:background="@null"
-            tools:listitem="@layout/widget_detail_list_item" />
+            android:background="@android:color/white"
+            tools:listitem="@layout/widget_scores_list_item" />
 
         <TextView
             android:id="@+id/widget_empty"
@@ -43,6 +43,7 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:text="@string/empty_forecast_list"
+            android:background="#FFFFFF"
             android:textAppearance="?android:textAppearanceLarge" />
     </FrameLayout>
 

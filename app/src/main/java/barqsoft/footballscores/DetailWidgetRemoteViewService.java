@@ -22,7 +22,8 @@ public class DetailWidgetRemoteViewService extends RemoteViewsService {
     public static final int COL_DATE = 1;
     public static final int COL_LEAGUE = 5;
     public static final int COL_MATCHDAY = 9;
-    public static final int COL_ID = 8;
+    public static final int COL_ID = 0;
+    public static final int COL_MATCH_ID = 8;
     public static final int COL_MATCHTIME = 2;
 
     @Override
@@ -83,19 +84,21 @@ public class DetailWidgetRemoteViewService extends RemoteViewsService {
                     return null;
                 }
                 RemoteViews views = new RemoteViews(getPackageName(),R.layout.widget_scores_list_item);
-                final String home_team = data.getString(COL_HOME);
-                final String Score = Utilies.getScores(data.getInt(COL_HOME_GOALS), data.getInt(COL_AWAY_GOALS));
                 views.setTextViewText(R.id.home_name, data.getString(COL_HOME));
                 views.setTextViewText(R.id.away_name, data.getString(COL_AWAY));
                 views.setTextViewText(R.id.score_textview, Utilies.getScores(data.getInt(COL_HOME_GOALS), data.getInt(COL_AWAY_GOALS)));
                 views.setTextViewText(R.id.data_textview, data.getString(COL_MATCHTIME));
-                final double match_id = data.getDouble(COL_ID);
+                final double match_id = data.getDouble(COL_MATCH_ID);
                 views.setImageViewResource(R.id.home_crest, Utilies.getTeamCrestByTeamName(
                         data.getString(COL_HOME)));
-                views.setImageViewResource(R.id.away_crest,Utilies.getTeamCrestByTeamName(
+                views.setImageViewResource(R.id.away_crest, Utilies.getTeamCrestByTeamName(
                         data.getString(COL_AWAY)));
-
-                views.setOnClickFillInIntent(R.id.football_scores_widget_list_item,new Intent(getApplicationContext(),DetailActivity.class));
+                Intent fillIntent = new Intent(getApplicationContext(),DetailActivity.class);
+                fillIntent.putExtra("id",match_id);
+                views.setOnClickFillInIntent(R.id.football_scores_widget_list_item, fillIntent);
+                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
+                    views.setContentDescription(R.id.football_scores_widget_list_item,"List Item " + (data.getPosition()+1) + " .Click for details" );
+                }*/
 
                 return views;
             }

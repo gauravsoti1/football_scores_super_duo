@@ -40,6 +40,11 @@ public class DatabaseContract
         {
             return BASE_CONTENT_URI.buildUpon().appendPath("id").build();
         }
+        public static Uri buildScoreWithMatchId()
+        {
+            return BASE_CONTENT_URI.buildUpon().appendPath(MATCH_ID).build();
+        }
+
         public static Uri buildScoreWithDate()
         {
             return BASE_CONTENT_URI.buildUpon().appendPath("date").build();
